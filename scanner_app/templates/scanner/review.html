@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision — Relatório</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/review.css' %}">
+</head>
+<body>
+
+    <div class="grid-overlay" aria-hidden="true"></div>
+
+    <main class="wrapper">
+        <div class="report">
+
+            <!-- Cabeçalho do relatório -->
+            <header class="report__header">
+                <p class="report__breadcrumb">
+                    <a href="{% url 'home' %}">VISION</a>
+                    <span aria-hidden="true">/</span>
+                    <span>RELATÓRIO</span>
+                </p>
+                <div class="report__header-right">
+                    <span class="report__time">{{ scan_time }}</span>
+                </div>
+            </header>
+
+            <!-- Indicador de risco com barra -->
+            <div class="risk-indicator risk-indicator--{{ risk_level|lower }}" role="status" aria-label="Nível de risco: {{ risk_level_display }}">
+                <div class="risk-indicator__label">NÍVEL DE RISCO</div>
+                <div class="risk-indicator__value">{{ risk_level_display|upper }}</div>
+                <div class="risk-bar" aria-hidden="true">
+                    <div class="risk-bar__fill" style="--fill: {{ risk_percentage|default:'50' }}%"></div>
+                </div>
+            </div>
+
+            <!-- Dados principais da análise -->
+            <div class="data-grid">
+                <div class="data-field">
+                    <span class="data-field__key">URL ANALISADA</span>
+                    <span class="data-field__val data-field__val--url">{{ url }}</span>
+                </div>
+                <div class="data-field">
+                    <span class="data-field__key">STATUS HTTPS</span>
+                    <span class="data-field__val">{{ https_status }}</span>
+                </div>
+                <div class="data-field">
+                    <span class="data-field__key">SCRIPTS DETECTADOS</span>
+                    <span class="data-field__val">{{ scripts_status }}</span>
+                </div>
+            </div>
+
+            <!-- Lista de vulnerabilidades -->
+            <div class="vuln-section">
+                <h2 class="vuln-section__title">
+                    <span class="vuln-section__title-tag">VULNERABILIDADES</span>
+                    ENCONTRADAS
+                </h2>
+                <ul class="vuln-list" role="list">
+                    {% for vulnerability in vulnerabilities %}
+                        <li class="vuln-item">
+                            <span class="vuln-item__icon" aria-hidden="true">⚠</span>
+                            {{ vulnerability }}
+                        </li>
+                    {% empty %}
+                        <li class="vuln-item vuln-item--safe">
+                            <span class="vuln-item__icon" aria-hidden="true">✓</span>
+                            Nenhuma vulnerabilidade detectada.
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Ação de voltar -->
+            <div class="report__actions">
+                <a href="{% url 'home' %}" class="btn-back">← Nova análise</a>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>

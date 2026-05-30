@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision — Segurança Preventiva</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/landing.css' %}">
+</head>
+<body>
+
+    <div class="grid-overlay" aria-hidden="true"></div>
+
+    <header class="nav-bar">
+        <p class="nav-logo">VISION</p>
+        <a href="{% url 'home' %}" class="nav-cta">Iniciar análise →</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero__tag">SEGURANÇA PREVENTIVA</div>
+        <h1 class="hero__title">Identifique ameaças<br>antes do acesso.</h1>
+        <p class="hero__desc">
+            Análise automatizada de websites suspeitos com foco em phishing,
+            scripts maliciosos e coleta indevida de dados.
+        </p>
+        <a href="{% url 'home' %}" class="hero__btn">Fazer um scan agora</a>
+
+        <div class="hero__stats" aria-label="Resumo técnico">
+            <div class="stat">
+                <span class="stat__value">HTTP/S</span>
+                <span class="stat__label">Suporte</span>
+            </div>
+            <div class="stat__sep" aria-hidden="true"></div>
+            <div class="stat">
+                <span class="stat__value">&lt; 10s</span>
+                <span class="stat__label">Resposta</span>
+            </div>
+            <div class="stat__sep" aria-hidden="true"></div>
+            <div class="stat">
+                <span class="stat__value">MVC</span>
+                <span class="stat__label">Arquitetura</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" aria-labelledby="features-heading">
+        <div class="section-header">
+            <span class="section-tag">FUNCIONALIDADES</span>
+            <h2 id="features-heading">O que o Vision analisa</h2>
+        </div>
+
+        <div class="feature-grid">
+            <article class="feature-card">
+                <div class="feature-card__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                        <path d="M11 2L3 6v5c0 4.4 3.4 8.5 8 9.5 4.6-1 8-5.1 8-9.5V6l-8-4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                        <path d="M8 11l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3>Detecção de Phishing</h3>
+                <p>Busca ativa por padrões de formulários falsos e tentativas de captura de credenciais no HTML.</p>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-card__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                        <path d="M7 8l-4 3 4 3M15 8l4 3-4 3M13 5l-4 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3>Análise de Scripts</h3>
+                <p>Execução via Selenium para identificar comportamentos maliciosos em JavaScript dinâmico.</p>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-card__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                        <rect x="3" y="3" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M7 8h8M7 12h5M7 16h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3>Relatórios de Risco</h3>
+                <p>Compilação clara dos resultados com nível de risco atribuído: Baixo, Médio ou Alto.</p>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-card__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                        <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M11 7v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3>Mapeamento HTTP</h3>
+                <p>Extração de cabeçalhos, URLs internas e metadados do servidor para análise de contexto.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="stack-section" aria-labelledby="stack-heading">
+        <div class="section-header">
+            <span class="section-tag">TECNOLOGIAS</span>
+            <h2 id="stack-heading">Stack do projeto</h2>
+        </div>
+
+        <ul class="stack-list" role="list">
+            <li class="stack-item"><span class="stack-item__name">Python</span><span class="stack-item__role">Lógica de processamento e automação</span></li>
+            <li class="stack-item"><span class="stack-item__name">Django</span><span class="stack-item__role">Framework MVC e gerenciamento web</span></li>
+            <li class="stack-item"><span class="stack-item__name">Selenium</span><span class="stack-item__role">Automação de navegador e análise dinâmica</span></li>
+            <li class="stack-item"><span class="stack-item__name">BeautifulSoup</span><span class="stack-item__role">Extração e análise de estrutura HTML</span></li>
+            <li class="stack-item"><span class="stack-item__name">Requests</span><span class="stack-item__role">Requisições HTTP para análise de servidor</span></li>
+        </ul>
+    </section>
+
+    <section class="flow-section" aria-labelledby="flow-heading">
+        <div class="section-header">
+            <span class="section-tag">FLUXO</span>
+            <h2 id="flow-heading">Como funciona</h2>
+        </div>
+
+        <ol class="flow-list" role="list">
+            <li class="flow-step"><span class="flow-step__num">01</span><div><strong>Envio da URL</strong><p>Usuário insere o endereço suspeito na interface.</p></div></li>
+            <li class="flow-step"><span class="flow-step__num">02</span><div><strong>Análise automatizada</strong><p>Vision realiza o escaneamento via Requests, Selenium e BeautifulSoup.</p></div></li>
+            <li class="flow-step"><span class="flow-step__num">03</span><div><strong>Detecção de ameaças</strong><p>Padrões maliciosos e comportamentos suspeitos são identificados.</p></div></li>
+            <li class="flow-step"><span class="flow-step__num">04</span><div><strong>Relatório gerado</strong><p>Resultados compilados com nível de risco e vulnerabilidades encontradas.</p></div></li>
+        </ol>
+    </section>
+
+    <footer class="site-footer">
+        <p class="site-footer__logo">VISION</p>
+        <p class="site-footer__credits">Guilherme S. Ribeiro - Thiago Alves</p>
+        <p class="site-footer__year">© 2026 - Projeto Acadêmico</p>
+    </footer>
+
+</body>
+</html>

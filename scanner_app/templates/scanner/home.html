@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision — Scanner de Vulnerabilidades</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+
+    <div class="grid-overlay" aria-hidden="true"></div>
+
+    <main class="wrapper">
+
+        <div class="card">
+
+            <div class="card__bar" aria-hidden="true">
+                <div class="card__dots">
+                    <span></span><span></span><span></span>
+                </div>
+                <span class="card__bar-label">VISION_SCANNER v1.0</span>
+            </div>
+
+            <div class="card__body">
+
+                <div class="card__logo" aria-hidden="true">
+                    <svg width="48" height="32" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 2C13 2 4 12 4 16C4 20 13 30 24 30C35 30 44 20 44 16C44 12 35 2 24 2Z" stroke="#00e5ff" stroke-width="1.5" fill="none"/>
+                        <circle cx="24" cy="16" r="6" stroke="#00e5ff" stroke-width="1.5" fill="none"/>
+                        <circle cx="24" cy="16" r="2.5" fill="#00e5ff"/>
+                        <path d="M24 10V7M24 25V22M14 16H11M37 16H34" stroke="#00e5ff" stroke-width="1" opacity="0.5"/>
+                    </svg>
+                </div>
+
+                <h1 class="card__title">VISION</h1>
+                <p class="card__subtitle">SCANNER DE VULNERABILIDADES</p>
+                <div class="card__divider" aria-hidden="true"></div>
+
+                <form method="POST" action="{% url 'scan' %}">
+                    {% csrf_token %}   
+
+                    <div class="input-group">
+                        <label for="url-input" class="visually-hidden">URL para análise</label>
+                        <span class="input-prefix" aria-hidden="true">URL</span>
+                        <input id="url-input"
+                               type="url"
+                               name="url"
+                               placeholder="https://exemplo.com"
+                               required
+                               autocomplete="off"
+                               spellcheck="false">
+                    </div>
+
+                    <button type="submit" class="btn-scan" aria-label="Iniciar análise de segurança">
+                        <span>INICIAR SCAN</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </form>
+
+                <p class="card__hint">Suporte para HTTP e HTTPS</p>
+
+            </div>
+        </div>
+
+        <nav class="bottom-nav" aria-label="Links secundários">
+            <a href="{% url 'landing' %}">Sobre o projeto</a>
+        </nav>
+
+    </main>
+
+</body>
+</html>
