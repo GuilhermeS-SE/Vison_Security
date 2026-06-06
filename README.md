@@ -70,7 +70,7 @@ python -m venv venv
 3. **Instale as dependências:**
 
 ```bash
-pip install django selenium beautifulsoup4 requests
+pip install -r requirements.txt
 ```
 
 ### 3. WebDriver (necessário para o Selenium)
