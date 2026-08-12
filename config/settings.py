@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-79ye@ph-ht9(*__$4$na2cw-$gv_s)mex+fi=!a&*5rje5=531
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["vision-kvty.onrender.com"]
 
 
 # Application definition
